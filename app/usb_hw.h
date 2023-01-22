@@ -10,7 +10,7 @@
 
 
 void USB_PreInit(void);
-
+void Get_SerialNum(void);
 
 
 

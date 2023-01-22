@@ -37,7 +37,7 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-
+#include "usb_hw.h"
 #include "usb_lib.h"
 #include "usb_conf.h"
 #include "usb_prop.h"
@@ -210,14 +210,6 @@ void CustomHID_SetConfiguration(void)
     /* Device configured */
     bDeviceState = CONFIGURED;
     
-    /* Start ADC Software Conversion */ 
-#if defined(STM32L1XX_MD) || defined(STM32L1XX_HD)|| defined(STM32L1XX_MD_PLUS)|| defined(STM32F37X)
-    ADC_SoftwareStartConv(ADC1);
-#elif defined(STM32F303xC) || defined(STM32F303xE)
-    ADC_StartConversion(ADC1);
-#else
-    ADC_SoftwareStartConvCmd(ADC1, ENABLE);
-#endif /* STM32L1XX_XD */
   }
 }
 /*******************************************************************************
